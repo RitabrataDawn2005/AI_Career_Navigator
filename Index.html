@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CareerAI — AI Career Navigator</title>
+<meta name="description" content="Find career paths that fit your skills, interests and goals.">
+<link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+<div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
+<header class="nav" id="nav"><div class="wrap nav-in">
+  <a class="logo" href="#home">Career<b>AI</b></a>
+  <nav id="menu" aria-label="Main"><a href="#home">Home</a><a href="#explore">Explore Careers</a><a href="#assessment">Assessment</a><a href="#roadmap">Roadmap</a><a href="#faq">About</a><a href="#contact">Contact</a></nav>
+  <div class="nav-r"><button id="theme" class="icon-btn" aria-label="Switch theme">◐</button><a class="btn sm" href="#assessment">Start Assessment</a><button id="burger" class="icon-btn burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div>
+</div></header>
+
+<main>
+<section id="home" class="hero wrap">
+  <div>
+    <h1>Discover the Career That Fits You.</h1>
+    <p class="lead">Explore personalized career paths based on your skills, interests, goals, and potential.</p>
+    <div class="row"><a class="btn" href="#assessment">Start Career Assessment</a><a class="btn ghost" href="#explore">Explore Careers</a></div>
+    <aside class="tip card" aria-label="Career tip of the day"><h2>Career Tip of the Day</h2><p id="tipText"></p><button class="link" id="tipBtn">Show another tip</button></aside>
+  </div>
+  <div class="viz card" aria-label="Sample career match dashboard">
+    <p class="muted">Career Match</p><p class="big"><span data-count="92" data-suf="%">0%</span></p>
+    <div class="mini"><span>Python Developer</span><i class="bar"><b data-w="92"></b></i></div>
+    <div class="mini"><span>AI Engineer</span><i class="bar"><b data-w="84"></b></i></div>
+    <div class="mini"><span>Data Scientist</span><i class="bar"><b data-w="72"></b></i></div>
+    <span class="chip c1">Skills Match +18%</span><span class="chip c2">Career Fit 92%</span><span class="chip c3">3 Skills to Improve</span>
+  </div>
+</section>
+
+<section id="assessment" class="wrap sec">
+  <h2>Career Assessment</h2>
+  <form id="quiz" class="card" novalidate>
+    <div class="row between"><strong id="stepLabel"></strong><span id="stepName" class="muted"></span></div>
+    <i class="bar thick" role="progressbar" aria-label="Assessment progress"><b id="quizBar"></b></i>
+    <fieldset id="stepBody"></fieldset>
+    <p id="err" class="err" role="alert"></p>
+    <div class="row between"><button type="button" class="btn ghost" id="prev">Previous</button><button type="button" class="btn" id="next">Next</button></div>
+  </form>
+</section>
+
+<section id="results" class="wrap sec" hidden>
+  <div id="analyzing" class="card center" role="status"><h2>Analyzing your profile...</h2><i class="bar thick scan"><b></b></i><p class="muted">Matching your answers against 11 career profiles</p></div>
+  <div id="profile" hidden>
+    <h2>Your Career Profile is Ready!</h2>
+    <ul id="insights" class="insights"></ul>
+    <h3>Recommended Careers</h3><div id="recGrid" class="grid"></div>
+  </div>
+</section>
+
+<section id="gap" class="wrap sec"><div class="row between"><h2>Skill Gap Analysis</h2><label class="muted">Career <select class="goalSel"></select></label></div><div id="gapBody" class="card"></div></section>
+<section id="roadmap" class="wrap sec"><div class="row between"><h2>Learning Roadmap</h2><label class="muted">Career goal <select class="goalSel"></select></label></div><div id="roadBody" class="card"></div></section>
+
+<section id="saved" class="wrap sec"><h2>My Saved Careers</h2><div id="savedGrid" class="grid"></div><p id="recent" class="muted"></p></section>
+
+<section id="compare" class="wrap sec"><h2>Career Comparison</h2>
+  <div class="card"><div class="row"><select id="cmpA" aria-label="First career"></select><select id="cmpB" aria-label="Second career"></select><select id="cmpC" aria-label="Third career (optional)"></select><button class="btn" id="cmpBtn">Compare Careers</button></div><div id="cmpOut" class="scroll"></div></div>
+</section>
+
+<section id="dashboard" class="wrap sec"><h2>Your Statistics</h2><div id="stats" class="grid stats"></div><div id="chart" class="card"></div></section>
+
+<section id="explore" class="wrap sec"><h2>Explore Careers</h2>
+  <div class="row filters"><input id="search" type="search" placeholder="Search careers or skills" aria-label="Search careers"><select id="diff" aria-label="Difficulty"><option value="">Any difficulty</option><option>Easy</option><option>Medium</option><option>Hard</option></select></div>
+  <div id="cats" class="row" role="group" aria-label="Categories"></div>
+  <div id="exGrid" class="grid"></div>
+</section>
+
+<section id="faq" class="wrap sec"><h2>FAQ</h2><div id="faqList"></div></section>
+
+<section id="contact" class="wrap sec"><h2>Feedback</h2>
+  <form id="fb" class="card" novalidate>
+    <p class="muted">There is no backend: submitting opens your email app with the message prefilled (placeholder address in script.js).</p>
+    <label>Name<input id="fbName" required></label><label>Email<input id="fbEmail" type="email" required></label><label>Feedback<textarea id="fbMsg" rows="4" required></textarea></label>
+    <p id="fbErr" class="err" role="alert"></p><button class="btn">Open email draft</button>
+  </form>
+</section>
+</main>
+
+<dialog id="modal" aria-labelledby="mTitle"><div id="mBody"></div><button class="btn ghost sm" id="mClose">Close</button></dialog>
+
+<footer class="foot"><div class="wrap row between">
+  <div><a class="logo" href="#home">Career<b>AI</b></a><p class="muted">Navigate your future with confidence.</p><p class="muted">Built with HTML, CSS &amp; JavaScript</p></div>
+  <nav aria-label="Footer"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#faq">About</a><a href="#">Privacy</a><a href="#contact">Contact</a></nav>
+</div></footer>
+<script src="Script1.js"></script>
+</body>
+</html>
